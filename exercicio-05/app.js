@@ -20,7 +20,11 @@
     4
     5
 */
-
+ let i = 0
+ while (i <= 5) {
+  console.log(i)
+  i++
+ }
 
 
 /*
@@ -29,7 +33,9 @@
   - Utilizando um for loop, faça o mesmo que foi pedido no exercício 01.
 */
 
-
+ for (let index = 0; index <= 5; index++) {
+  console.log(index)  
+ }
 
 /*
   03 - Comente o loop acima e:
@@ -42,8 +48,11 @@
   "Esta é a Xª vez que esta frase é exibida no console."
 */
 
-
-
+  index = 1;
+  while(index <= 10) {
+    console.log(`Esta é a ${index}ª vez que esta frase é exibida no console.`);
+    index ++
+  }
 /*
   04 - Comente o loop acima e:
 
@@ -55,6 +64,17 @@
 */
 
 const cities = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais']
+let upperCaseCities = []
+
+for (let index = 0; index < cities.length; index++) {
+  const element = cities[index].toLocaleUpperCase();
+  upperCaseCities.push(element);
+}
+
+for (let index = 0; index < upperCaseCities.length; index++) {
+  console.log(upperCaseCities[index]);
+}
+
 
 /*
   05 - Comente o console.log acima e:
@@ -66,7 +86,16 @@ const cities = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais']
 */
 
 const names = ['João Grilo', 'Chicó', 'Rosinha']
+let newArray = []
+for (let index = 0; index < names.length; index++) {
+  newArray.push(`<li>${names[index]}</li>`);
+}
 
+// for (let i = 0; i < newArray.length; i++) {
+//   console.log(newArray[i]);
+// }
+
+console.log(newArray.concat())
 /*
   06 - Comente o console.log acima e:
 
@@ -78,6 +107,12 @@ const names = ['João Grilo', 'Chicó', 'Rosinha']
 
 const numbers = ['91', '5', '30', '97', '83', '31']
 
+let soma = 0
+for (let index = 0; index < numbers.length; index++) {
+  const element = Number(numbers[index]);
+  soma += element
+}
+console.log(`Soma total: ${soma}`)
 /*
   07 - Comente o console.log acima.
 
@@ -102,3 +137,15 @@ const arrays = [
   [8, 32, 16],
   [2, 8, 4]
 ]
+
+let somaTotal = 0
+for (let index = 0; index < arrays.length; index++) {
+  const elementArray = arrays[index];
+  for (let index = 0; index < elementArray.length; index++) {
+    somaTotal+= elementArray[index];
+    
+  }
+  
+}
+
+console.log(`A soma total dos arrays aninhados é: ${somaTotal}`)

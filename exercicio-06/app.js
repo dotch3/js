@@ -24,6 +24,15 @@
 */
 
 const fruits = ['morango', 'banana', 'mamão']
+const fruitAbacaxi = 'abacaxi'
+const fruitPera = 'pera'
+if(fruits.includes(fruitAbacaxi)) {
+  console.log (`A string ${fruitAbacaxi} existe no array fruits.`)
+} else if (fruits.includes(fruitPera)) {
+  console.log (`A string ${fruitPera} existe no array fruits.`)
+} else {
+  console.log(`Nem ${fruitPera} nem ${fruitAbacaxi} existem no array "fruits".`)
+}
 
 /*
   02
@@ -37,7 +46,15 @@ const fruits = ['morango', 'banana', 'mamão']
   Obs.: tanto a expressão do lado esquerdo quanto a do lado direito do operador  
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
+const currentTime = 12
 
+if(currentTime >= 6 && currentTime < 12) {
+  console.log("Bom dia!")
+} else if (currentTime >= 12 && currentTime <18) {
+  console.log('Boa tarde!')
+} else if ( currentTime >=18 && currentTime < 6) {
+  console.log( 'Boa noite!')
+}
 /*
   03
 
@@ -51,7 +68,14 @@ const fruits = ['morango', 'banana', 'mamão']
   - Agora, teste diferentes idades para se certificar que a condição do `if`  
     também está funcionando.
 */
-
+const idade = 38
+let msg =''
+if (idade <=7 || idade >= 65) {
+  msg ='Para você a entrada é grátis!'
+} else {
+  msg = 'A entrada é R$ 30,00.'
+}
+console.log(msg)
 /*
   04
 
@@ -62,6 +86,17 @@ const fruits = ['morango', 'banana', 'mamão']
 */
 
 const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
+
+let newArray=[]
+
+for (let index = 0; index < numbers.length; index++) {
+  const element = numbers[index];
+  if(element >= 11 && element <= 90) {
+    newArray.push(element)
+  }
+  
+}
+console.log(newArray.join(', '))
 
 /*
   05
@@ -77,6 +112,24 @@ const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
 */
 
 const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
+
+let qtyBooleans = 0 
+let qtyNumbers = 0 
+let qtyStrings = 0
+for (let index = 0; index < crazyArray.length; index++) {
+  const element = crazyArray[index];
+  console.log(typeof(element))
+  if( typeof(element) == 'string'){
+    qtyStrings ++;
+  } else if (typeof(element) == 'number') {
+    qtyNumbers ++
+  } else if (typeof (element) == 'boolean') {
+    qtyBooleans ++
+  }
+  
+}
+
+console.log(`O crazyArray tem ${qtyBooleans} booleans, ${qtyNumbers} números e ${qtyStrings} strings.`)
 
 /*
   06
@@ -96,3 +149,43 @@ const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false
 */
 
 const randomNumbers = [73, 4, 67, 10, 31, 58]
+
+let oddNumbers =[]
+let evenNumbers = []
+for (let index = 0; index < randomNumbers.length; index++) {
+  const element = randomNumbers[index];
+  if(element % 2 == 0) {
+    evenNumbers.push(element)
+  } else {
+    oddNumbers.push(element)
+  }
+}
+
+console.log(oddNumbers.join(), evenNumbers.join())
+
+let msgEvenNumbers = ''
+ for (let index = 0; index < evenNumbers.length; index++) {
+  const element = evenNumbers[index];
+  if(index == evenNumbers.length -1) {
+    // ultimo elemento do array
+    msgEvenNumbers+=`e ${element}`
+
+  } else{
+    msgEvenNumbers+= `${element} ,`
+  }
+ }
+
+ let msgOddNumbers =''
+ for (let index = 0; index < oddNumbers.length; index++) {
+  const element = oddNumbers[index];
+  if(index == oddNumbers.length -1) {
+    // ultimo elemento do array
+    msgOddNumbers+=`e ${element}`
+
+  } else{
+    msgOddNumbers+= `${element} ,`
+  }
+  
+ }
+ let msgFinal = `Números ímpares: ${msgOddNumbers.replace(',e', 'e')}. Números pares: ${msgEvenNumbers.replace(',e', 'e')}`
+ console.log(msgFinal)
